@@ -14,8 +14,6 @@ pip install yfinance
 
 ## Usage
 
-### `one-quote.py`
-
 Fetches the latest price for a single symbol. If the symbol is quoted in a currency other than EUR, it automatically fetches the conversion rate and calculates the price in EUR.
 
 **Command:**
@@ -39,4 +37,19 @@ Example output:
 - **price**: The price in EUR, formatted to 4 decimal places.
 - **date**: Today's date in `YYYY-MM-DD` format.
 
+**Settings for KMyMoney**
+
+Following the neeed settings in KMyMoney. Create a new Online-quotes source and change the following:
+
+- **identifier**: ^([^;]+)
+- **Symbol**: ^([^;]+)
+- **value**: ;([\d\.]+);
+- **date**: ;(\d{4}-\d{2}-\d{2})$
+- **date format**: yyyy-MM-dd
+- **price decimal separator**: period (.)
+
 All error messages and usage instructions are directed to `stderr`.
+
+## License
+
+This project is licensed under the [GNU General Public License v3.0 (GPLv3)](https://www.gnu.de/documents/gpl.de.html).
