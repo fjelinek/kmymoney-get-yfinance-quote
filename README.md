@@ -1,47 +1,42 @@
-# KMyMoney Quotes
+# KMyMoney Quote Fetcher
 
-A collection of Python scripts to fetch financial quotes using `yfinance` and format them for import into KMyMoney.
+This script fetches the latest financial quotes from Yahoo Finance and formats them for integration with KMyMoney.
 
 ## Prerequisites
 
 - Python 3
 - `yfinance` library
 
-You can install `yfinance` using pip:
+Install dependencies:
 ```bash
 pip install yfinance
 ```
 
-## Scripts
+## Usage
 
 ### `one-quote.py`
 
-Fetches the latest price for a single symbol, converts it to EUR (if the symbol is in a different currency), and prints it to standard output.
+Fetches the latest price for a single symbol. If the symbol is quoted in a currency other than EUR, it automatically fetches the conversion rate and calculates the price in EUR.
 
-**Usage:**
+**Command:**
 ```bash
 python3 one-quote.py <symbol>
 ```
 
 **Example:**
 ```bash
-python3 one-quote.py IE00B3VVMM84
-```
-**Output Format:**
-`symbol;price;date` (e.g., `IE00B3VVMM84;123.4567;2023-10-27`)
-
-### `quotes.py`
-
-Fetches quotes for a predefined list of funds and prints them in CSV format.
-
-**Usage:**
-```bash
-python3 quotes.py
+python3 one-quote.py AAPL
 ```
 
 **Output Format:**
-`symbol,price,date`
+The script prints exactly one line to standard output:
+`symbol;price;date`
 
-## Integration with KMyMoney
+Example output:
+`AAPL;172.4500;2023-10-27`
 
-These scripts are designed to be used with KMyMoney's online quote feature or CSV import. The `one-quote.py` script is particularly useful for fetching individual fund prices in a format that is easy to parse.
+- **symbol**: The ticker symbol passed as an argument.
+- **price**: The price in EUR, formatted to 4 decimal places.
+- **date**: Today's date in `YYYY-MM-DD` format.
+
+All error messages and usage instructions are directed to `stderr`.
