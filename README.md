@@ -39,7 +39,7 @@ Example output:
 
 **Settings for KMyMoney**
 
-Following the neeed settings in KMyMoney. Create a new Online-quotes source and change the following:
+Following the needed settings in KMyMoney. Create a new Online-quotes source and change the following:
 
 - **identifier**: ^([^;]+)
 - **Symbol**: ^([^;]+)
